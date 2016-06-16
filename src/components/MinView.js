@@ -13,7 +13,11 @@ const containerStyle = {
 };
 
 const textAndImgStyle = {
+  width: '100%',
+  height: '100%',
   display: 'flex',
+  justifyContent: 'space-between',
+  // flex: '1',
   margin: '1rem',
 };
 
@@ -21,8 +25,13 @@ const textStyle = {
   // display: 'flex',
   // justifyContent: 'center',
   // alignItems: 'center',
+  flex: '2',
   padding: '1rem',
   fontSize: '1.5rem',
+};
+
+const imageStyle = {
+  flex: '1',
 };
 
 const MinView = (props) => {
@@ -33,7 +42,7 @@ const MinView = (props) => {
         <div style={textStyle} >
           {text}
         </div>
-        <img src={img} alt={alt} />
+        <img src={img} alt={alt} style={imageStyle} />
       </div>
     </div>
   );
