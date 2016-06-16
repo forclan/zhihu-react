@@ -11,6 +11,7 @@ const getDate = (date) => {
 const dateStyle = {
   padding: '1rem',
 };
+
 const DateInfo = (props) => {
   const { date } = props;
   return (
