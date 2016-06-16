@@ -2,6 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import MinView from './MinView';
 import { loadNews } from '../util/fetchNews';
 
+const MinNewsStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-around',
+};
+
+const newsStyle = {
+  maxWidth: '500px',
+  // minWidth: '200px',
+};
+
 class MinNews extends Component {
   constructor(props) {
     super(props);
@@ -33,15 +44,19 @@ class MinNews extends Component {
       //                     alt={'fdf'}
       //             />
       const news = sto.map((val) =>
-        <MinView
-          img={val.images[0]}
-          text={val.title}
-          alt={val.id.toString()}
-          key={val.id.toString()}
-        />
+        <div style={newsStyle}>
+          <MinView
+            img={val.images[0]}
+            text={val.title}
+            alt={val.id.toString()}
+            key={val.id.toString()}
+            width={500}
+            height={130}
+          />
+        </div>
       );
       const display = (
-        <div>
+        <div style={MinNewsStyle}>
           {news}
         </div>
       );

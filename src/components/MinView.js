@@ -1,24 +1,34 @@
 import React, { PropTypes } from 'react';
 
-const containerStyle = {
+let containerStyle = {
+  margin: '0px',
   display: 'flex',
   borderRadius: '1rem',
   border: '1px solid rgba(35, 40, 32, 0.31)',
   background: 'rgba(208, 233, 233, 0.07)',
+  flexWrap: 'wrap',
+  flexDirection: 'row',
   maxWidth: '500px',
+  // minWidth: '200px',
   // maxHeight: '150px',
   flexBasis: 'auto',
   // maxHeight: '100px',
   flex: 1,
 };
 
-const textAndImgStyle = {
+const wrapStyle = {
   width: '100%',
   height: '100%',
+};
+
+const textAndImgStyle = {
+  // width: '100%',
+  // height: '100%',
   display: 'flex',
   justifyContent: 'space-between',
+  padding: '1rem',
   // flex: '1',
-  margin: '1rem',
+  // margin: '1rem',
 };
 
 const textStyle = {
@@ -27,30 +37,43 @@ const textStyle = {
   // alignItems: 'center',
   flex: '2',
   padding: '1rem',
-  fontSize: '1.5rem',
+  fontSize: '1.3rem',
 };
 
+const wrapImageStyle = {
+  flex: 1,
+};
 const imageStyle = {
-  flex: '1',
+  width: '100px',
+  height: '100px',
 };
 
 const MinView = (props) => {
-  const { img, alt, text } = props;
+  const { img, alt, text, width, height } = props;
+  containerStyle.width = width;
+  containerStyle.height = height;
   return (
     <div style={containerStyle} >
-      <div style={textAndImgStyle}>
-        <div style={textStyle} >
-          {text}
+      <div style={wrapStyle}>
+        <div style={textAndImgStyle}>
+          <div style={textStyle} >
+            {text}
+          </div>
+          <div style={wrapImageStyle}>
+            <img src={img} alt={alt} style={imageStyle} />
+          </div>
         </div>
-        <img src={img} alt={alt} style={imageStyle} />
       </div>
     </div>
   );
 };
+
 MinView.propTypes = {
   img: PropTypes.string.isRequired,
   alt: PropTypes.string,
   text: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
 };
 
 export default MinView;
