@@ -48,19 +48,20 @@ const imageStyle = {
   height: '100px',
 };
 
+
 const MinView = (props) => {
-  const { img, alt, text, width, height } = props;
+  const { img, id, text, width, height } = props;
   containerStyle.width = width;
   containerStyle.height = height;
   return (
-    <div style={containerStyle} >
-      <div style={wrapStyle}>
-        <div style={textAndImgStyle}>
-          <div style={textStyle} >
+    <div style={containerStyle} id={id}>
+      <div style={wrapStyle} id={id}>
+        <div style={textAndImgStyle} id={id}>
+          <div style={textStyle} id={id}>
             {text}
           </div>
-          <div style={wrapImageStyle}>
-            <img src={img} alt={alt} style={imageStyle} />
+          <div style={wrapImageStyle} id={id}>
+            <img src={img} alt={id} style={imageStyle} id={id} />
           </div>
         </div>
       </div>
@@ -70,7 +71,7 @@ const MinView = (props) => {
 
 MinView.propTypes = {
   img: PropTypes.string.isRequired,
-  alt: PropTypes.string,
+  id: PropTypes.string,
   text: PropTypes.string.isRequired,
   width: PropTypes.number,
   height: PropTypes.number,

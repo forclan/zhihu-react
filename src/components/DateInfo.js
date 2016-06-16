@@ -8,10 +8,13 @@ const getDate = (date) => {
   return '' + year + '-' + month + '-' + day;
 };
 
+const dateStyle = {
+  padding: '1rem',
+};
 const DateInfo = (props) => {
   const { date } = props;
   return (
-    <div>
+    <div style={dateStyle}>
       {getDate(date)}
     </div>
   );

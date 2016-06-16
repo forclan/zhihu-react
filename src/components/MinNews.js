@@ -3,6 +3,10 @@ import MinView from './MinView';
 import { loadNews } from '../util/fetchNews';
 import DateInfo from './DateInfo';
 
+const clickHandler = (e) => {
+  console.log(e.target.id);
+};
+
 const MinNewsStyle = {
   display: 'flex',
   flexWrap: 'wrap',
@@ -32,9 +36,7 @@ class MinNews extends Component {
       .then((resolve) => {
         const stories = resolve.stories;
         this.setState({ stories });
-      })
-
-      ;
+      });
   }
 
   render() {
@@ -49,7 +51,7 @@ class MinNews extends Component {
           <MinView
             img={val.images[0]}
             text={val.title}
-            alt={val.id.toString()}
+            id={val.id.toString()}
             key={val.id.toString()}
             width={400}
             height={130}
@@ -57,7 +59,7 @@ class MinNews extends Component {
         </div>
       );
       const display = (
-        <div>
+        <div onClick={clickHandler}>
           <div id="date">
             <DateInfo date={new Date()} />
           </div>
