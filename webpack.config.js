@@ -49,11 +49,15 @@ module.exports = {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: [path.join(__dirname, 'src'), path.join(__dirname, 'demo')],
+    }, {
+      test: /\.css$/,
+      loaders: ['style', 'css'],
+      include: [path.join(__dirname, 'src')],
     },
     ],
   },
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.scss', '.jsx'],
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.scss', '.jsx', '.css'],
   },
   externals,
 };

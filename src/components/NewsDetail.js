@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { loadNews } from '../util/fetchNews';
+import style from './NewsDetailStyle';
 
 
 const removeImagTag = (str) => {
@@ -7,6 +8,7 @@ const removeImagTag = (str) => {
   const replacement = '';
   return str.replace(matchReg, replacement);
 };
+
 class NewsDetail extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,15 @@ class NewsDetail extends Component {
     // const css = response.css[0];
     let result = (<div></div>);
     if (response) {
-      result = <div dangerouslySetInnerHTML={{ __html: removeImagTag(response.body) }}></div>;
+      result = (
+        <article className="newsItem">
+          <div
+            className="news-content"
+            dangerouslySetInnerHTML={{ __html: removeImagTag(response.body) }}
+          >
+          </div>
+        </article>
+      );
     }
     return result;
   }
