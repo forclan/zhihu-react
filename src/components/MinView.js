@@ -1,5 +1,10 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'rgb(32, 18, 36)',
+};
 let containerStyle = {
   margin: '0px',
   display: 'flex',
@@ -53,19 +58,22 @@ const MinView = (props) => {
   const { img, id, text, width, height } = props;
   containerStyle.width = width;
   containerStyle.height = height;
+  const linkTo = `/news/${id}`;
   return (
-    <div style={containerStyle} id={id}>
-      <div style={wrapStyle} id={id}>
-        <div style={textAndImgStyle} id={id}>
-          <div style={textStyle} id={id}>
-            {text}
-          </div>
-          <div style={wrapImageStyle} id={id}>
-            <img src={img} alt={id} style={imageStyle} id={id} />
+    <Link to={linkTo} style={linkStyle}>
+      <div style={containerStyle} id={id}>
+        <div style={wrapStyle} id={id}>
+          <div style={textAndImgStyle} id={id}>
+            <div style={textStyle} id={id}>
+              {text}
+            </div>
+            <div style={wrapImageStyle} id={id}>
+              <img src={img} alt={id} style={imageStyle} id={id} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
