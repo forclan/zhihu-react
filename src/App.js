@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { render } from 'react-dom';
 import MinNews from './components/MinNews';
 import NewsDetail from './components/NewsDetail';
-import { Router, Route, Link, IndexRoute, hasHistory } from 'react-router';
+import { Router, IndexRoute, hasHistory } from 'react-router';
 
 const App = (props) => (
   <div>

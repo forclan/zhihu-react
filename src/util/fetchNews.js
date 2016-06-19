@@ -23,7 +23,6 @@ const fetchUrl = (url, errorMessage) =>
   });
 
 const loadNews = (url) => {
-  console.log(url);
   const news =
     fetchUrl(url)
       .then((response) => JSON.parse(response))
