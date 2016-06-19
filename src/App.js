@@ -7,9 +7,6 @@ import { Router, Route, Link, IndexRoute, hasHistory } from 'react-router';
 const App = (props) => (
   <div>
     <h1>App</h1>
-    <ul>
-      <li><Link to="/news/8427344">news</Link></li>
-    </ul>
     {props.children}
   </div>
 );

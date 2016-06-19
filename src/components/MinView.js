@@ -5,6 +5,9 @@ const linkStyle = {
   textDecoration: 'none',
   color: 'rgb(32, 18, 36)',
 };
+
+const proxyServerUrl = `http://zhihu.bood.in/readapi?`;
+
 let containerStyle = {
   margin: '0px',
   display: 'flex',
