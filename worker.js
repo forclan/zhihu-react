@@ -22,14 +22,14 @@ const loadNews = (url) => {
   const news =
     fetchUrl(url)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         postMessage(JSON.parse(response));
       })
       .catch(reject => Error(reject));
   return news;
 };
 
-onmessage = (e) => {
-  console.log('receive data' + e);
+const onmessage = (e) => {
+  // console.log('receive data' + e);
   loadNews(e.data[0]);
 };

@@ -8,18 +8,18 @@ const linkStyle = {
 
 let containerStyle = {
   margin: '0px',
-  display: 'flex',
+  // display: 'flex',
   borderRadius: '1rem',
   border: '1px solid rgba(35, 40, 32, 0.31)',
   background: 'rgba(208, 233, 233, 0.07)',
-  flexWrap: 'wrap',
-  flexDirection: 'row',
-  maxWidth: '500px',
+  // flexWrap: 'wrap',
+  // flexDirection: 'row',
+  // maxWidth: '500px',
   // minWidth: '200px',
   // maxHeight: '150px',
-  flexBasis: 'auto',
+  // flexBasis: 'auto',
   // maxHeight: '100px',
-  flex: 1,
+  // flex: 1,
 };
 
 const wrapStyle = {
@@ -62,10 +62,10 @@ const MinView = (props) => {
   const linkTo = `/news/${id}`;
   return (
     <Link to={linkTo} style={linkStyle}>
-      <div style={containerStyle} id={id}>
-        <div style={wrapStyle} id={id}>
-          <div style={textAndImgStyle} id={id}>
-            <div style={textStyle} id={id}>
+      <div style={containerStyle} className="col s12 m6 l4 z-depth-1">
+        <div style={wrapStyle} >
+          <div style={textAndImgStyle} >
+            <div style={textStyle} >
               {text}
             </div>
             <div style={wrapImageStyle} id={id}>

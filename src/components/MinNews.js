@@ -8,9 +8,10 @@ const clickHandler = (e) => {
 };
 
 const MinNewsStyle = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-around',
+  // margin: '1rem',
+  // display: 'flex',
+  // flexWrap: 'wrap',
+  // justifyContent: 'space-around',
 };
 
 const newsStyle = {
@@ -53,17 +54,15 @@ class MinNews extends Component {
             text={val.title}
             id={val.id.toString()}
             key={val.id.toString()}
-            width={400}
-            height={130}
           />
         </div>
       );
       const display = (
         <div onClick={clickHandler}>
           <div id="date">
-            <DateInfo date={new Date()} />
+            <DateInfo date={this.props.date} />
           </div>
-          <div style={MinNewsStyle} >
+          <div style={MinNewsStyle} className="row">
             {news}
           </div>
         </div>
@@ -78,6 +77,7 @@ class MinNews extends Component {
 
 MinNews.propTypes = {
   url: PropTypes.string,
+  date: PropTypes.object.isRequired,
 };
 
 export default MinNews;

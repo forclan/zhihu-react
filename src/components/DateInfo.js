@@ -1,12 +1,5 @@
 import React, { PropTypes } from 'react';
-
-
-const getDate = (date) => {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDay();
-  return '' + year + '-' + month + '-' + day;
-};
+import { getDate } from '../util/DateToString';
 
 const dateStyle = {
   padding: '1rem',
