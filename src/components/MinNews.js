@@ -4,9 +4,7 @@ import { loadNews } from '../util/fetchNews';
 import DateInfo from './DateInfo';
 import { setLocalData } from '../util/setLocalStorage';
 
-const clickHandler = (e) => {
-  console.log(e.target.id);
-};
+const clickHandler = () => {};
 
 const MinNewsStyle = {
   // margin: '1rem',

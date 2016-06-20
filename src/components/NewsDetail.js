@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { loadNews, loadNewsAndSaveDate } from '../util/fetchNews';
+import { loadNewsAndSaveDate } from '../util/fetchNews';
 import style from './NewsDetailStyle';
 
 

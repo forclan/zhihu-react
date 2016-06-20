@@ -35,10 +35,11 @@ const Index = () =>
 
 
 render(
-  // <MinNews url={"http://zhihu.bood.in/readapi?uri=http://news.at.zhihu.com/api/4/news/before/20160613"} />
-  // <NewsDetail url={'http://zhihu.bood.in/readapi?uri=http://news.at.zhihu.com/api/4/news/8427344'} />
   <Router history={browserHistory}>
-    <Router path="/" component={App}>
+    /* react-router's default path is "/", which means if your App is servered
+       at a subfolder like /React/, the default path should be /React/
+    */
+    <Router path="/React/Zhihu" component={App}>
       <IndexRoute component={Index} />
       <Router path="news/:id" component={News} />
     </Router>
