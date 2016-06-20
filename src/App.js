@@ -6,7 +6,7 @@ import { Router, IndexRoute, browserHistory } from 'react-router';
 import { getDate } from './util/DateToString';
 
 const ZHIHU_URL = 'http://zhihu.bood.in/readapi?uri=http://news.at.zhihu.com/api/4/news/';
-const ZHIHU_NEWS = ZHIHU_URL + 'before/';
+const ZHIHU_NEWS = `${ZHIHU_URL}before/`;
 const App = (props) => (
   <div>
     <h1>Daily</h1>

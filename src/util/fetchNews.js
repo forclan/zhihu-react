@@ -33,7 +33,6 @@ const loadNews = (url) => {
 
 const loadNewsAndSaveDate = (url, name = null) => {
   if (name && localStorage.getItem(name)) {
-    console.log('get data from localStorage');
     return localStorage.getItem(name);
   }
   const result =
