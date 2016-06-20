@@ -39,23 +39,18 @@ class MinNews extends Component {
       this.setState({
         stories: JSON.parse(localStorage.getItem(url)),
       });
-    } else {
-      loadNews(url)
-        .then((resolve) => {
-          const stories = resolve.stories;
-          setLocalData(url, JSON.stringify(stories));
-          this.setState({ stories });
-        });
     }
+    loadNews(url)
+      .then(resolve => {
+        const stories = resolve.stories;
+        setLocalData(url, JSON.stringify(stories));
+        this.setState({ stories });
+      });
   }
 
   render() {
     const sto = this.state.stories || null;
     if (sto) {
-      // let news = <MinView img={sto[0].images[0]}
-      //                     text={sto[0].title}
-      //                     alt={'fdf'}
-      //             />
       const news = sto.map((val) =>
         <div style={newsStyle} key={val.id.toString()}>
           <MinView
