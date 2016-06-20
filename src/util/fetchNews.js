@@ -1,3 +1,4 @@
+import { setLocalData } from '../util/setLocalStorage';
 // const zhihuAPI = 'http://news-at.zhihu.com/api/';
 // const zhihuAPIVersion = '4';
 // const zhihuBaseUrl = zhihuAPI + zhihuAPIVersion + '/news/';
@@ -30,5 +31,21 @@ const loadNews = (url) => {
   return news;
 };
 
+const loadNewsAndSaveDate = (url, name = null) => {
+  if (name && localStorage.getItem(name)) {
+    console.log('get data from localStorage');
+    return localStorage.getItem(name);
+  }
+  const result =
+   loadNews(url)
+     .then(response => {
+       if (name) {
+         setLocalData(name, JSON.stringify(response));
+       }
+       return response;
+     });
+  return result;
+};
+
 export default fetchUrl;
-export { loadNews };
+export { loadNews, loadNewsAndSaveDate };

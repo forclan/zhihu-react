@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import MinView from './MinView';
 import { loadNews } from '../util/fetchNews';
 import DateInfo from './DateInfo';
+import { setLocalData } from '../util/setLocalStorage';
 
 const clickHandler = (e) => {
   console.log(e.target.id);
@@ -33,11 +34,19 @@ class MinNews extends Component {
   }
 
   componentDidMount() {
-    loadNews(this.state.url)
-      .then((resolve) => {
-        const stories = resolve.stories;
-        this.setState({ stories });
+    const url = this.state.url;
+    if (localStorage.getItem(url)) {
+      this.setState({
+        stories: JSON.parse(localStorage.getItem(url)),
       });
+    } else {
+      loadNews(url)
+        .then((resolve) => {
+          const stories = resolve.stories;
+          setLocalData(url, JSON.stringify(stories));
+          this.setState({ stories });
+        });
+    }
   }
 
   render() {

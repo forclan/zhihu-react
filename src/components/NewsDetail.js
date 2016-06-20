@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { loadNews } from '../util/fetchNews';
+import { loadNews, loadNewsAndSaveDate } from '../util/fetchNews';
 import style from './NewsDetailStyle';
 
 
@@ -26,14 +26,21 @@ class NewsDetail extends Component {
   }
 
   componentDidMount() {
-    loadNews(this.state.url)
-      .then(resolve => {
-        this.setState({
-          url: this.state.url,
-          info: resolve,
-        });
-      })
-      .catch(reject => Error(reject));
+    if (localStorage.getItem(this.state.url)) {
+      this.setState({
+        url: this.state.url,
+        info: JSON.parse(localStorage.getItem(this.state.url)).body,
+      });
+    } else {
+      loadNewsAndSaveDate(this.state.url, this.state.url)
+        .then(resolve => {
+          this.setState({
+            url: this.state.url,
+            info: resolve.body,
+          });
+        })
+        .catch(reject => Error(reject));
+    }
   }
 
   render() {
@@ -46,7 +53,7 @@ class NewsDetail extends Component {
         <article className="newsItem">
           <div
             className="news-content"
-            dangerouslySetInnerHTML={{ __html: removeImagTag(response.body) }}
+            dangerouslySetInnerHTML={{ __html: removeImagTag(response) }}
           >
           </div>
         </article>
