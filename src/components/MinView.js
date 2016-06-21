@@ -62,7 +62,10 @@ const MinView = (props) => {
   const linkTo = `/news/${id}`;
   return (
     <Link to={linkTo} style={linkStyle}>
-      <div style={containerStyle} className="col s12 m6 l4 z-depth-1 wave-effect">
+      <div
+        style={containerStyle}
+        className="card-panel cyan lighten-5 col s12 m6 l4 z-depth-1"
+      >
         <div style={wrapStyle} >
           <div style={textAndImgStyle} >
             <div style={textStyle} >

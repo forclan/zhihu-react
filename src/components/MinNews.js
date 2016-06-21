@@ -3,6 +3,7 @@ import MinView from './MinView';
 import { loadNews } from '../util/fetchNews';
 import DateInfo from './DateInfo';
 import { setLocalData } from '../util/setLocalStorage';
+import Circular from './Circular';
 
 const clickHandler = () => {};
 
@@ -73,7 +74,7 @@ class MinNews extends Component {
         display
       );
     }
-    return (<div></div>);
+    return <Circular />;
   }
 }
 

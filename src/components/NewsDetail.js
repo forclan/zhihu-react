@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { loadNewsAndSaveDate } from '../util/fetchNews';
 import style from './NewsDetailStyle';
+import Circular from './Circular';
 
 
 const removeImagTag = (str) => {
@@ -47,7 +48,7 @@ class NewsDetail extends Component {
     const response = this.state.info || null;
     // const imgSrc = response.image;
     // const css = response.css[0];
-    let result = (<div></div>);
+    let result = <Circular />;
     if (response) {
       result = (
         <article className="newsItem">
