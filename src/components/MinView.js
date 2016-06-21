@@ -59,7 +59,7 @@ const MinView = (props) => {
   const { img, id, text, width, height } = props;
   containerStyle.width = width;
   containerStyle.height = height;
-  const linkTo = `/news/${id}`;
+  const linkTo = `/React/Zhihu/news/${id}`;
   return (
     <Link to={linkTo} style={linkStyle}>
       <div style={containerStyle} className="col s12 m6 l4 z-depth-1 wave-effect">

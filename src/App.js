@@ -39,7 +39,7 @@ render(
     {/* react-router's default path is "/", which means if your App is servered
        at a subfolder like /React/, the default path should be /React/
     */}
-    <Router path="/" component={App}>
+    <Router path="/React/Zhihu/" component={App}>
       <IndexRoute component={Index} />
       <Router path="news/:id" component={News} />
     </Router>
